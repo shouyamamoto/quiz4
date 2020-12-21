@@ -3,14 +3,14 @@
 {
   const answer = document.getElementById('input_message');
   const input_btn = document.getElementById('input_btn');
-  const output_answer = document.getElementById('output_message');
 
-  function outputAnswer() {
-    const input_answer = answer.value
-    output_answer.textContent = `入力した答えは「${input_answer}」です。`
-  }
+  const quizList = [
+    {q: 'appendの意味は？', a: '追加'},
+    {q: 'parentの意味は？', a: '親'},
+    {q: 'childの意味は？', a: '子'}
+  ]
+
 
   input_btn.addEventListener('click', () => {
-    outputAnswer();
   });
 }

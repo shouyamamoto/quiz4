@@ -12,6 +12,10 @@ p {
   text-align: center;
 }
 
+.quiz {
+  margin: 100px 0;
+}
+
 input {
   display: block;
   margin: 20px auto;
