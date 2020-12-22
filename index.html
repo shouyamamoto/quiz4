@@ -7,15 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1 class="title">英単語学習アプリ</h1>
   <section class="quiz">
-    <p>フォームに答えを入力してください。</p>
-
     <p id="quiz"></p>
-    <input type="text" id="input_message">
+    <input type="text" id="input_message" autocomplete="off" maxlength="20">
     <input type="button" id="input_btn" value="答え合わせ">
 
-    <button id="next_btn" class="disabled">次へ</button>
-  
+    <button id="next_btn">次へ</button>
   </section>
 
   <script src="main.js"></script>

@@ -14,6 +14,7 @@
 
   let currentNum = 0;
   
+  // クイズをセットする
   function setQuiz() {
     if(answer.disabled) {
       answer.disabled = false;
@@ -29,6 +30,8 @@
       answer.classList.remove('wrong');
     }
 
+    input_btn.classList.remove('check_answer'); //btnのcheck_answerクラスを削除
+    next_btn.classList.add('disabled'); //next_btnにdisabledクラスを追加
     quiz.textContent = quizList[currentNum].q;
   }
 
@@ -43,15 +46,19 @@
     }
   }
 
+  // 答え合わせ
   function check_answer() {
     answer.disabled = true;
     if(answer.value === quizList[currentNum].a ) {
       answer.classList.add('correct');
+      answer.value = `${answer.value} ...正解！`;
     } else {
       answer.classList.add('wrong');
+      answer.value = `${answer.value} ...不正解！`;
     }
   }
 
+  // input['text']の入力を監視
   answer.addEventListener('input', () => {
     btnColor();
   });
@@ -73,7 +80,7 @@
     }
     currentNum ++; //問題を1つ進める
     answer.value = ''; //inputの中を初期化する
-    input_btn.classList.remove('check_answer'); //btnのcheck_answerクラスを削除
+
     setQuiz();
   });
 }
