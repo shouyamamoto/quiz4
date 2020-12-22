@@ -19,6 +19,7 @@ p {
 }
 
 .quiz {
+  position: relative;
   margin: 40px 0;
   background-color: #121629;
   padding: 20px;
@@ -102,4 +103,36 @@ button {
   background-color: #ebab34;
   box-shadow: 0 4px 0 #c9922c;
   transform: translateY(-2px);
+}
+
+#result {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto; 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  border: 10px solid #ebab34;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+#result.hidden {
+  transform: translateY(-500px);
+}
+
+#result > a {
+  color: #ebab34;
+  font-weight: bold;
+}
+
+#result > a:hover {
+  cursor: pointer;
+}
+
+#result > p {
+  color: #232946;
+  font-size: 24px;
 }
