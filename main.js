@@ -13,8 +13,22 @@
   ];
 
   let currentNum = 0;
-
+  
   function setQuiz() {
+    if(answer.disabled) {
+      answer.disabled = false;
+    }
+
+    if(next_btn.classList.contains('active')) {
+      next_btn.classList.remove('active');
+    }
+
+    if(answer.classList.contains('correct')) {
+      answer.classList.remove('correct');
+    } else if(answer.classList.contains('wrong')) {
+      answer.classList.remove('wrong');
+    }
+
     quiz.textContent = quizList[currentNum].q;
   }
 
@@ -30,6 +44,7 @@
   }
 
   function check_answer() {
+    answer.disabled = true;
     if(answer.value === quizList[currentNum].a ) {
       answer.classList.add('correct');
     } else {
@@ -45,11 +60,17 @@
   input_btn.addEventListener('click', () => {
     if(input_btn.classList.contains('check_answer')) {
       check_answer();
+
+      next_btn.classList.remove('disabled');
+      next_btn.classList.add('active');
     }
   });
   
   // next_btnを押すと問題を進める
   next_btn.addEventListener('click', () => {
+    if(next_btn.classList.contains('disabled')) {
+      return;
+    }
     currentNum ++; //問題を1つ進める
     answer.value = ''; //inputの中を初期化する
     input_btn.classList.remove('check_answer'); //btnのcheck_answerクラスを削除
