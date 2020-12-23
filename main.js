@@ -6,6 +6,7 @@
   const input_btn = document.getElementById('input_btn');
   const next_btn = document.getElementById('next_btn');
   const result = document.getElementById('result');
+  const resultScore = document.querySelector('#result > p');
 
   const quizList = [
     {q: 'appendの意味は？', a: '追加'},
@@ -14,7 +15,7 @@
   ];
 
   let currentNum = 0;
-  let score;
+  let score = 0;
   
   // クイズをセットする
   function setQuiz() {
@@ -38,11 +39,13 @@
     quiz.textContent = quizList[currentNum].q;
   }
 
+  
   setQuiz();
+
 
   //inputに答えを入力するとbtnの色が変化する
   function btnColor() {
-    if(answer.value.length == 0) { //入力されていなければbtnの色は変更しない
+    if(answer.value.length === 0) { //入力されていなければbtnの色は変更しない
       input_btn.classList.remove('check_answer');
     } else if(answer.value.length >= 1) {　//1文字でも入力されていればbtnの色を変更
       input_btn.classList.add('check_answer');
@@ -56,6 +59,7 @@
       answer.classList.add('correct');
       answer.value = `${answer.value} ...正解！`;
       score++;
+      resultScore.textContent = `Score : ${score} / ${quizList.length}`;
     } else {
       answer.classList.add('wrong');
       answer.value = `${answer.value} ...不正解！`;
@@ -87,7 +91,6 @@
       answer.value = ''; //inputの中を初期化する  
     }
     
-
     if(currentNum === quizList.length - 1) { //最後の問題でnext_btnの表示を変える
       next_btn.textContent = '結果発表！';
 
@@ -98,4 +101,6 @@
 
     setQuiz();
   });
+  
+  
 }
