@@ -59,7 +59,7 @@ function btnColor() {
 // 答え合わせ
 function check_answer() {
   answer.disabled = true;
-  if(answer.value === quizList[currentNum].a[0] || quizList[currentNum].a[1] ) {
+  if(answer.value === quizList[currentNum].a[0] || quizList[currentNum].a[1] || quizList[currentNum].a[2]) {
     answer.classList.add('correct');
     answer.value = `${answer.value} ...正解！`;
     score++;
