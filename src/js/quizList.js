@@ -7,3 +7,4 @@ const quizList = [
   {q: 'parentの意味は？', a: ['親']},
   {q: 'childの意味は？', a: ['子', '子供']}
 ];
+

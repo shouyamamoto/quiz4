@@ -8,7 +8,7 @@ const result = document.querySelector('#result');
 const resultScore = document.querySelector('.score');
 
 let currentNum = 0;
-let score = 0;
+let score = 0
 
 // クイズをセットする
 function setQuiz() {
