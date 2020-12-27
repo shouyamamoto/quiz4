@@ -35,7 +35,7 @@ const cssTask = () => {
 
 // jsコンパイル
 const jsTask = () => {
-    return src('./src/js/**/**', {sourcemaps: true})
+    return src('./src/js/**', {sourcemaps: true})
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
