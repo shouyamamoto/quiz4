@@ -56,17 +56,20 @@ function btnColor() {
   }
 }
 
+
 // 答え合わせ
 function check_answer() {
   answer.disabled = true;
-  if(answer.value === quizList[currentNum].a[0] || quizList[currentNum].a[1] || quizList[currentNum].a[2]) {
+  if(quizList[currentNum].a.includes(answer.value)) {
     answer.classList.add('correct');
-    answer.value = `${answer.value} ...正解！`;
+    // answer.value = `${answer.value} ...正解！`;
     score++;
+    console.log(answer.value);
     resultScore.textContent = `Score : ${score} / ${quizList.length}`;
   } else {
     answer.classList.add('wrong');
-    answer.value = `${answer.value} ...不正解！`;
+    // answer.value = `${answer.value} ...不正解！`;
+    console.log(answer.value);
   }
   input_btn.classList.remove('check_answer');
 }
