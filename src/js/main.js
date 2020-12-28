@@ -62,14 +62,12 @@ function check_answer() {
   answer.disabled = true;
   if(quizList[currentNum].a.includes(answer.value)) {
     answer.classList.add('correct');
-    // answer.value = `${answer.value} ...正解！`;
+    input_btn.classList.add('correct');
+    input_btn.value = '◯';
     score++;
-    console.log(answer.value);
     resultScore.textContent = `Score : ${score} / ${quizList.length}`;
   } else {
     answer.classList.add('wrong');
-    // answer.value = `${answer.value} ...不正解！`;
-    console.log(answer.value);
   }
   input_btn.classList.remove('check_answer');
 }

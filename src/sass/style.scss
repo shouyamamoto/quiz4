@@ -46,25 +46,27 @@ button {
   outline: none;
 }
 
+//入力欄のスタイル
 #input_message {
   padding: 10px;
   width: 280px;
   text-align: center;
   transition: all 0.3s;
+
+  &.wrong {
+    color: #fff;
+    background-color: #ff99bd;
+    border: 1px solid tomato;
+  }
+
+  &.correct {
+    color: #fff;
+    background-color: #85edb6;
+    border: 1px solid teal;
+  }
 }
 
-#input_message.wrong {
-  color: #fff;
-  background-color: #ff99bd;
-  border: 1px solid tomato;
-}
-
-#input_message.correct {
-  color: #fff;
-  background-color: #85edb6;
-  border: 1px solid teal;
-}
-
+// 答え合わせのボタン
 #input_btn {
   width: 280px;
   padding: 5px;
@@ -73,13 +75,13 @@ button {
   transition: all 0.4s;
   border-radius: 4px;
   font-weight: bold;
-}
 
-#input_btn.check_answer {
-  background-color: #eebbc3;
-  box-shadow: 0 4px 0 #99797e;
-  transform: translateY(-2px);
-  color: #232946;
+  &.check_answer {
+    background-color: #eebbc3;
+    box-shadow: 0 4px 0 #99797e;
+    transform: translateY(-2px);
+    color: #232946;
+  }
 }
 
 #input_btn:hover,
@@ -87,6 +89,7 @@ button {
   cursor: pointer;
 }
 
+//次へ行くボタン
 #next_btn {
   display: block;
   width: 280px;
@@ -97,14 +100,15 @@ button {
   transition: all 0.4s;
   border-radius: 4px;
   font-weight: bold;
+
+  &.active {
+    background-color: #ebab34;
+    box-shadow: 0 4px 0 #c9922c;
+    transform: translateY(-2px);
+  }
 }
 
-#next_btn.active {
-  background-color: #ebab34;
-  box-shadow: 0 4px 0 #c9922c;
-  transform: translateY(-2px);
-}
-
+//結果
 #result {
   position: absolute;
   top: 40px;
@@ -117,22 +121,22 @@ button {
   border: 10px solid #ebab34;
   text-align: center;
   transition: all 0.3s;
-}
 
-#result.hidden {
-  transform: translateY(-500px);
-}
+  &.hidden {
+    transform: translateY(-500px);
+  }
 
-#result > a {
-  color: #ebab34;
-  font-weight: bold;
-}
+  & > a {
+    color: #ebab34;
+    font-weight: bold;
+  }
 
-#result > a:hover {
-  cursor: pointer;
-}
+  & > a:hover {
+    cursor: pointer;
+  }
 
-#result > p {
-  color: #232946;
-  font-size: 24px;
+  & > p {
+    color: #232946;
+    font-size: 24px;
+  }
 }
