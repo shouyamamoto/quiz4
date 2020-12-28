@@ -68,6 +68,8 @@ function check_answer() {
     resultScore.textContent = `Score : ${score} / ${quizList.length}`;
   } else {
     answer.classList.add('wrong');
+    input_btn.classList.add('wrong');
+    input_btn.value = '×';
   }
   input_btn.classList.remove('check_answer');
 }
@@ -94,6 +96,13 @@ next_btn.addEventListener('click', () => {
   } else if(currentNum < quizList.length - 1){ //最後の問題まで進める
     currentNum ++; //問題を1つ進める
     answer.value = ''; //inputの中を初期化する  
+    input_btn.value = '答え合わせ';
+
+    if(input_btn.classList.contains('correct')) {
+      input_btn.classList.remove('correct');
+    } else if(input_btn.classList.contains('wrong')) {
+      input_btn.classList.remove('wrong');
+    }
   }
   
   if(currentNum === quizList.length - 1) { //最後の問題でnext_btnの表示を変える
