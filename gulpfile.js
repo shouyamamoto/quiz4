@@ -31,6 +31,7 @@ const cssTask = () => {
         .pipe(autoprefixer({cascade:false}))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(dest('./dist/css', {sourcemaps: true}))
+        .pipe(dest('./src/css', {sourcemaps: true}))
 }
 
 // jsコンパイル
