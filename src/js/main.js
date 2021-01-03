@@ -62,6 +62,7 @@ function check_answer() {
   answer.disabled = true;
 
   const checked_ans = quizList[currentNum].a.find(e => e.test(answer.value));
+  // console.log(checked_ans);
 
   if(checked_ans) {      
     answer.classList.add('correct');
