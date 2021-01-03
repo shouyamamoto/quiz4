@@ -5,7 +5,7 @@ const answer = document.querySelector('#input_message');
 const input_btn = document.querySelector('#input_btn');
 const next_btn = document.querySelector('#next_btn');
 const result = document.querySelector('#result');
-const resultScore = document.querySelector('.score');
+const resultScore = document.querySelector('#score');
 
 let currentNum = 0;
 let score = 0;
@@ -60,7 +60,10 @@ function btnColor() {
 // 答え合わせ
 function check_answer() {
   answer.disabled = true;
-  if(quizList[currentNum].a.includes(answer.value)) {
+
+  const checked_ans = quizList[currentNum].a.find(e => e.test(answer.value));
+
+  if(checked_ans) {      
     answer.classList.add('correct');
     input_btn.classList.add('correct');
     input_btn.value = '◯';
@@ -71,13 +74,9 @@ function check_answer() {
     input_btn.classList.add('wrong');
     input_btn.value = '×';
   }
+
   input_btn.classList.remove('check_answer');
 }
-
-// input['text']の入力を監視
-answer.addEventListener('input', () => {
-  btnColor();
-});
 
 //input_btnを押すと答え合わせをする
 input_btn.addEventListener('click', () => {
@@ -87,6 +86,11 @@ input_btn.addEventListener('click', () => {
     next_btn.classList.remove('disabled');
     next_btn.classList.add('active');
   }
+});
+
+// input['text']の入力を監視
+answer.addEventListener('input', () => {
+  btnColor();
 });
 
 // next_btnを押すと問題を進める

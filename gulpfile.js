@@ -53,7 +53,7 @@ const htmlTask = () => {
 
 const keiryoWatch = () => {
     watch('./src/sass/**/*.scss', cssTask)
-    watch('./src/js/**', jsTask)
-    watch('./src/html/**', htmlTask)
+    watch('./src/js/*.js', jsTask)
+    watch('./src/html/*.html', htmlTask)
 }
 exports.keiryoWatch = keiryoWatch;

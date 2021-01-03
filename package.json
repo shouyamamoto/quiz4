@@ -1,5 +1,5 @@
 {
-  "name": "tekeloca",
+  "name": "quiz",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -29,11 +29,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-uglify": "^3.0.2",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-jpeg-recompress": "^7.0.0",
-    "imagemin-pngquant": "^9.0.1",
-    "moveto": "^1.8.2"
+    "gulp-uglify": "^3.0.2"
   },
   "dependencies": {}
 }
