@@ -13,47 +13,20 @@ const notify = require('gulp-notify');
 // ベンダープレフィックスを自動付与
 const autoprefixer = require('gulp-autoprefixer');
 
-// jsの圧縮
-const babel = require('gulp-babel');
-
-// htmlの圧縮
-const htmlmin = require('gulp-htmlmin');
-
-
 const { src, dest, watch } = require('gulp');
 
 
 // sassコンパイル
 const cssTask = () => {
-    return src('./src/sass/**/*.scss', {sourcemaps: true})
+    return src('./sass/**/*.scss', {sourcemaps: true})
         .pipe(sassGlob())
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(autoprefixer({cascade:false}))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(dest('./dist/css', {sourcemaps: true}))
-        .pipe(dest('./src/css', {sourcemaps: true}))
-}
-
-// jsコンパイル
-const jsTask = () => {
-    return src('./src/js/**', {sourcemaps: true})
-        .pipe(babel({
-            presets: ['@babel/preset-env']
-        }))
-        .pipe(dest('./dist/js', {sourcemaps: true}))
-}
-
-
-//htmlのコンパイル
-const htmlTask = () => {
-    return src('./src/html/**')
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(dest('./dist/'))
 }
 
 const keiryoWatch = () => {
     watch('./src/sass/**/*.scss', cssTask)
-    watch('./src/js/*.js', jsTask)
-    watch('./src/html/*.html', htmlTask)
 }
 exports.keiryoWatch = keiryoWatch;
